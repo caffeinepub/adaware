@@ -1,0 +1,196 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "AdAware – An Explainable AI-Based Framework for Predicting Adolescent Concern Over Unhealthy Food Advertisements. A production-ready full-stack web application using Flask backend with Random Forest ML model, SHAP explainability, and modern dashboard UI. Final-year academic project.",
+  "architectural_notes": [
+    "Flask backend with Python for ML model serving and API endpoints",
+    "RandomForestClassifier as primary model, Logistic Regression for comparison",
+    "SHAP (TreeExplainer) for explainable AI visualizations",
+    "Model serialization using pickle (model.pkl) with encoders",
+    "Bootstrap or Tailwind CSS for responsive frontend",
+    "Chart.js for data visualizations and graphs",
+    "POST /predict API endpoint for prediction workflow",
+    "Multi-class classification: Low, Medium, High concern levels",
+    "Synthetic dataset generation on first run if no dataset provided",
+    "PDF generation library for downloadable reports"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Hero banner illustration showing AI analyzing food advertisements with health symbols, modern gradient style with teal and green accents (hero-banner.dim_1200x400.png)\n- Icon representing machine learning model, abstract neural network visualization in circular badge format (ml-model-icon.dim_200x200.png)\n- Icon representing explainable AI concept, lightbulb with circuit patterns in circular badge format (explainability-icon.dim_200x200.png)\n- Icon representing health recommendations, heart with checkmark in circular badge format (health-icon.dim_200x200.png)\n- Background pattern for About page, subtle geometric health-tech pattern in light colors (about-background.dim_1920x1080.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-home-page-with-project-overview-section-explaining-adaware-as-an-explainable-ai-decision-support-system-for-predicting-adolescent-concern-over-unhealthy-food-advertisements-hero-section-with-call-to-action-button-linking-to-prediction-form-and-overview-of-key-features-ml-prediction-shap-explainability-health-recommendations",
+      "title": "Create Home page with project overview section explaining AdAware as an Explainable AI decision-support system for predicting adolescent concern over unhealthy food advertisements, hero section with call-to-action button linking to prediction form, and overview of key features (ML prediction, SHAP explainability, health recommendations)",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-predict-page-with-input-form-containing-all-7-fields-age-group-dropdown-with-13-15-16-18-19-gender-radio-buttons-male-female-daily-screen-time-dropdown-2hrs-2-5hrs-5hrs-primary-platform-dropdown-youtube-instagram-tv-multiple-ad-frequency-dropdown-rare-sometimes-often-ad-type-dropdown-fast-food-sugary-drinks-snacks-ad-persuasiveness-dropdown-low-medium-high-submit-button-and-loading-animation-during-prediction",
+      "title": "Build Predict page with input form containing all 7 fields (Age Group dropdown with 13-15/16-18/19+, Gender radio buttons Male/Female, Daily Screen Time dropdown <2hrs/2-5hrs/>5hrs, Primary Platform dropdown YouTube/Instagram/TV/Multiple, Ad Frequency dropdown Rare/Sometimes/Often, Ad Type dropdown Fast Food/Sugary Drinks/Snacks, Ad Persuasiveness dropdown Low/Medium/High), submit button, and loading animation during prediction",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-results-page-displaying-predicted-concern-level-as-prominent-badge-low-medium-high-with-distinct-colors-personalized-health-recommendation-text-based-on-user-inputs-and-prediction-placeholder-section-for-shap-explanation-visualization-and-download-pdf-button-for-generating-report",
+      "title": "Create Results page displaying predicted concern level as prominent badge (Low/Medium/High with distinct colors), personalized health recommendation text based on user inputs and prediction, placeholder section for SHAP explanation visualization, and download PDF button for generating report",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-model-insights-page-showing-mock-ml-performance-metrics-accuracy-precision-recall-f1-scores-for-random-forest-confusion-matrix-visualization-as-heatmap-chart-feature-importance-bar-chart-ranking-all-7-input-features-and-model-comparison-chart-comparing-random-forest-vs-logistic-regression-performance",
+      "title": "Implement Model Insights page showing mock ML performance metrics (Accuracy, Precision, Recall, F1 scores for Random Forest), confusion matrix visualization as heatmap chart, feature importance bar chart ranking all 7 input features, and model comparison chart comparing Random Forest vs Logistic Regression performance",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-admin-dashboard-page-showing-total-predictions-counter-fetched-from-backend-concern-distribution-pie-chart-with-low-medium-high-percentages-age-group-analysis-chart-showing-prediction-patterns-across-13-15-16-18-19-groups-and-gender-bias-visualization-comparing-male-vs-female-prediction-distributions",
+      "title": "Build Admin Dashboard page showing total predictions counter fetched from backend, concern distribution pie chart with Low/Medium/High percentages, age group analysis chart showing prediction patterns across 13-15/16-18/19+ groups, and gender bias visualization comparing Male vs Female prediction distributions",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-about-project-page-with-comprehensive-sections-project-objective-explaining-the-academic-purpose-ml-pipeline-overview-describing-random-forest-and-data-flow-explainable-ai-explanation-detailing-shap-methodology-and-importance-ethical-ai-considerations-discussing-bias-analysis-and-transparency-future-scope-listing-potential-enhancements-and-justification-for-random-forest-selection",
+      "title": "Create About Project page with comprehensive sections: project objective explaining the academic purpose, ML pipeline overview describing Random Forest and data flow, Explainable AI explanation detailing SHAP methodology and importance, ethical AI considerations discussing bias analysis and transparency, future scope listing potential enhancements, and justification for Random Forest selection",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-responsive-navigation-bar-with-links-to-all-pages-home-predict-results-model-insights-admin-dashboard-about-project-and-ensure-consistent-layout-across-all-pages-using-tailwind-css-with-health-ai-aesthetic-theme-featuring-clean-minimal-design-and-smooth-animations",
+      "title": "Implement responsive navigation bar with links to all pages (Home, Predict, Results, Model Insights, Admin Dashboard, About Project) and ensure consistent layout across all pages using Tailwind CSS with health + AI aesthetic theme featuring clean, minimal design and smooth animations",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-pdf-report-generation-functionality-triggered-from-results-page-that-creates-downloadable-pdf-including-user-inputs-predicted-concern-level-shap-explanation-summary-placeholder-text-personalized-recommendation-timestamp-and-adaware-branding-header",
+      "title": "Implement PDF report generation functionality triggered from Results page that creates downloadable PDF including user inputs, predicted concern level, SHAP explanation summary (placeholder text), personalized recommendation, timestamp, and AdAware branding header",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Flask backend with Random Forest and Logistic Regression models for predicting concern levels (Low/Medium/High)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "SHAP integration for explainable AI with TreeExplainer, global feature importance, local explanations, summary plots, and force plots",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Prediction form with 7 input features: Age Group, Gender, Daily Screen Time, Primary Platform, Ad Frequency, Ad Type, Ad Persuasiveness",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Modern dashboard UI with pages: Home, Predict, Results, Model Insights, Admin Dashboard, About Project",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "ML pipeline with train-test split (80/20), encoding, metrics (Accuracy, Precision, Recall, F1), confusion matrix, feature importance, and bias analysis",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Synthetic dataset generator (minimum 400 rows) with rule-based concern level assignment",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Results page with prediction badge, SHAP graph, personalized recommendation, and PDF download",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Admin dashboard with total predictions, concern distribution pie chart, and age/gender bias visualization",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Model Insights page with accuracy metrics, confusion matrix, feature importance chart, and model comparison",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "PDF report generation with user inputs, prediction, SHAP explanation, recommendation, and timestamp",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Deployment-ready configuration with requirements.txt, Procfile, Gunicorn support for Render/Railway/AWS",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Comprehensive README.md with installation, deployment, ML pipeline, explainable AI, ethical considerations, and system architecture diagram",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-13",
+      "summary": "Implement Motoko backend actor with data structures to store prediction records including userId (Principal), timestamp, input features (age group, gender, screen time, platform, ad frequency, ad type, ad persuasiveness), predicted concern level (Low/Medium/High), and recommendation text",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-14",
+      "summary": "Create backend methods to accept prediction input (age group: 13-15/16-18/19+, gender: Male/Female, daily screen time: <2hrs/2-5hrs/>5hrs, primary platform: YouTube/Instagram/TV/Multiple, ad frequency: Rare/Sometimes/Often, ad type: Fast Food/Sugary Drinks/Snacks, ad persuasiveness: Low/Medium/High) and return mock prediction results with concern level and recommendation",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-15",
+      "summary": "Implement backend analytics methods to retrieve total prediction count, concern level distribution (counts for Low/Medium/High), and aggregated statistics by age group and gender for bias analysis",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-23",
+      "summary": "Integrate Chart.js library for rendering all data visualizations including confusion matrix heatmap, feature importance bar chart, model comparison chart, concern distribution pie chart, age group analysis chart, and gender bias chart with interactive tooltips and professional styling",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "AdAware",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

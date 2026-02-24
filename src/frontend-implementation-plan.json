@@ -1,0 +1,240 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "AdAware Explainable AI Framework Frontend Implementation",
+  "requirements": [
+    {
+      "id": "REQ-4",
+      "summary": "Create Home page with project overview, hero section with CTA, and key features overview",
+      "acceptanceCriteria": [
+        "Home page displays clear project title and academic positioning",
+        "Hero section includes prominent CTA button to start prediction",
+        "Page explains system purpose and key capabilities",
+        "Layout is responsive and professionally styled"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Home.tsx",
+          "operation": "create",
+          "description": "Create Home page component with hero section using generated hero-banner.dim_1200x400.png from frontend/public/assets/generated/hero-banner.dim_1200x400.png, project overview section explaining AdAware as an Explainable AI decision-support system for predicting adolescent concern over unhealthy food advertisements, feature cards displaying ML prediction, SHAP explainability, and health recommendations using generated icons (ml-model-icon.dim_200x200.png, explainability-icon.dim_200x200.png, health-icon.dim_200x200.png from frontend/public/assets/generated/), and prominent call-to-action button linking to /predict route. Use Tailwind CSS for responsive layout with health-focused color palette and smooth animations."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Build Predict page with comprehensive input form for all 7 prediction features",
+      "acceptanceCriteria": [
+        "Form includes all 7 input fields with exact options specified",
+        "All fields are required before submission",
+        "Submit button triggers backend prediction call",
+        "Loading state displays animated indicator during API call",
+        "Form validation prevents invalid submissions"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Predict.tsx",
+          "operation": "create",
+          "description": "Create Predict page with controlled form containing Age Group dropdown (13-15/16-18/19+), Gender radio buttons (Male/Female), Daily Screen Time dropdown (<2hrs/2-5hrs/>5hrs), Primary Platform dropdown (YouTube/Instagram/TV/Multiple), Ad Frequency dropdown (Rare/Sometimes/Often), Ad Type dropdown (Fast Food/Sugary Drinks/Snacks), and Ad Persuasiveness dropdown (Low/Medium/High). Map form values to backend enum types (AgeGroup, Gender, ScreenTime, Platform, Frequency, AdType, AdPersuasiveness). Implement form validation requiring all fields, loading state with animated spinner during backend submitPrediction call, and navigation to /results route with prediction data on success. Use Tailwind CSS for form styling and responsive layout."
+        },
+        {
+          "path": "frontend/src/hooks/usePrediction.ts",
+          "operation": "create",
+          "description": "Create custom hook for prediction submission that wraps backend submitPrediction method, manages loading and error states, handles Principal userId automatically, and returns prediction results (concernLevel and recommendation). Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Create Results page displaying prediction outcome with concern badge, recommendation, SHAP placeholder, and PDF download",
+      "acceptanceCriteria": [
+        "Concern level displayed as colored badge (green/yellow/red)",
+        "Personalized recommendation rendered in dedicated section",
+        "SHAP explanation section prepared (placeholder or static visualization)",
+        "PDF download button triggers report generation",
+        "Page displays all user inputs alongside results"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/Results.tsx",
+          "operation": "create",
+          "description": "Create Results page displaying predicted concern level as prominent colored badge (green for Low, yellow for Medium, red for High), personalized health recommendation text in dedicated section, user inputs summary table showing all 7 submitted values, placeholder section for SHAP explanation visualization with descriptive text, and PDF download button. Retrieve prediction data from navigation state or React context. Use Tailwind CSS for badge styling with distinct colors and card-based layout."
+        },
+        {
+          "path": "frontend/src/utils/pdfGenerator.ts",
+          "operation": "create",
+          "description": "Create PDF generation utility using jsPDF library to generate downloadable report including AdAware branding header, all user input values formatted as table, predicted concern level with colored badge representation, personalized recommendation text, SHAP explanation summary placeholder text, and timestamp. Export generatePredictionReport function accepting prediction data and user inputs."
+        },
+        {
+          "path": "frontend/src/components/DownloadPDFButton.tsx",
+          "operation": "create",
+          "description": "Create DownloadPDFButton component that triggers PDF generation on click using the pdfGenerator utility. Accept prediction data and user inputs as props, display loading state during generation, and automatically download the generated PDF with filename format 'AdAware_Report_TIMESTAMP.pdf'. Style button with Tailwind CSS matching overall theme."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Implement Model Insights page with mock ML performance metrics and visualizations",
+      "acceptanceCriteria": [
+        "Page displays accuracy, precision, recall, F1 metrics with realistic values",
+        "Confusion matrix rendered as interactive or static heatmap",
+        "Feature importance chart shows all 7 features ranked by importance",
+        "Comparison chart contrasts Random Forest and Logistic Regression performance",
+        "All visualizations use professional chart library"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/ModelInsights.tsx",
+          "operation": "create",
+          "description": "Create Model Insights page displaying mock ML performance metrics section (Accuracy: 0.87, Precision: 0.85, Recall: 0.88, F1: 0.86 for Random Forest), confusion matrix heatmap using Chart.js showing 3x3 matrix for Low/Medium/High predictions, feature importance bar chart ranking all 7 features (Ad Persuasiveness, Ad Frequency, Screen Time, Platform, Ad Type, Age Group, Gender) with mock importance scores, and model comparison chart contrasting Random Forest vs Logistic Regression performance metrics. Use Chart.js for all visualizations with interactive tooltips and health-tech color scheme."
+        },
+        {
+          "path": "frontend/src/components/charts/ConfusionMatrix.tsx",
+          "operation": "create",
+          "description": "Create ConfusionMatrix component rendering 3x3 heatmap chart using Chart.js with axes labeled Low/Medium/High for both predicted and actual values. Use mock confusion matrix data and gradient color scheme for cell intensity. Include interactive tooltips showing cell counts."
+        },
+        {
+          "path": "frontend/src/components/charts/FeatureImportance.tsx",
+          "operation": "create",
+          "description": "Create FeatureImportance component rendering horizontal bar chart using Chart.js displaying all 7 input features ranked by mock importance scores. Use health-focused color palette and include value labels on bars."
+        },
+        {
+          "path": "frontend/src/components/charts/ModelComparison.tsx",
+          "operation": "create",
+          "description": "Create ModelComparison component rendering grouped bar chart using Chart.js comparing Random Forest and Logistic Regression across Accuracy, Precision, Recall, and F1 metrics. Use distinct colors for each model and include legend."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Build Admin Dashboard page with analytics fetched from backend and bias visualizations",
+      "acceptanceCriteria": [
+        "Dashboard fetches real prediction count from backend",
+        "Pie chart displays concern level distribution with percentages",
+        "Age group chart shows breakdown of predictions by age category",
+        "Gender chart compares prediction patterns between male and female users",
+        "All charts update dynamically based on backend data"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/AdminDashboard.tsx",
+          "operation": "create",
+          "description": "Create Admin Dashboard page fetching total predictions count via backend getPredictionCount method, concern distribution via getConcernDistribution method, age group analysis via getPredictionsByAgeGroup method for each age category, and gender analysis via getPredictionsByGender method. Display total predictions counter prominently, render concern distribution pie chart, age group breakdown bar chart, and gender comparison chart using Chart.js. Implement loading states and error handling for all backend calls. Use card-based dashboard layout with Tailwind CSS."
+        },
+        {
+          "path": "frontend/src/components/charts/ConcernDistributionPie.tsx",
+          "operation": "create",
+          "description": "Create ConcernDistributionPie component rendering pie chart using Chart.js displaying Low/Medium/High concern level percentages. Accept distribution data as props from backend getConcernDistribution response. Use green/yellow/red color scheme matching concern badges."
+        },
+        {
+          "path": "frontend/src/components/charts/AgeGroupAnalysis.tsx",
+          "operation": "create",
+          "description": "Create AgeGroupAnalysis component rendering grouped bar chart using Chart.js showing prediction count breakdown across 13-15, 16-18, and 19+ age groups. Accept prediction arrays by age group as props and calculate distributions dynamically."
+        },
+        {
+          "path": "frontend/src/components/charts/GenderBiasChart.tsx",
+          "operation": "create",
+          "description": "Create GenderBiasChart component rendering side-by-side bar chart using Chart.js comparing Male vs Female prediction distributions across concern levels. Accept prediction arrays by gender as props and calculate percentages."
+        },
+        {
+          "path": "frontend/src/hooks/useAdminAnalytics.ts",
+          "operation": "create",
+          "description": "Create custom hook for fetching admin analytics data using backend methods getPredictionCount, getConcernDistribution, getPredictionsByAgeGroup, and getPredictionsByGender. Manage loading and error states, return aggregated analytics data. Verify the component's usage instructions before implementing."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Create About Project page with comprehensive academic content sections",
+      "acceptanceCriteria": [
+        "Page presents clear academic objective statement",
+        "ML pipeline section explains train-test split, encoding, and classification",
+        "SHAP section describes TreeExplainer and interpretation methods",
+        "Ethical AI section addresses bias analysis and transparency",
+        "Future scope lists realistic enhancements",
+        "Content suitable for academic evaluation and viva presentation"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/AboutProject.tsx",
+          "operation": "create",
+          "description": "Create About Project page with background image using generated about-background.dim_1920x1080.png from frontend/public/assets/generated/about-background.dim_1920x1080.png. Include comprehensive sections: Project Objective explaining academic purpose of predicting adolescent concern over unhealthy food ads, ML Pipeline Overview describing Random Forest classifier with train-test split and feature encoding, Explainable AI Explanation detailing SHAP TreeExplainer methodology and force plots, Ethical AI Considerations discussing bias analysis across age and gender demographics with transparency commitments, Future Scope listing potential enhancements (real-time prediction, mobile app, expanded demographics), and Justification for Random Forest selection emphasizing interpretability and ensemble learning. Use professional academic tone and structured layout with Tailwind CSS."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Implement responsive navigation and consistent layout across all pages",
+      "acceptanceCriteria": [
+        "Navigation accessible from all pages with active state indication",
+        "All pages share consistent header and footer layout",
+        "Design uses health-focused color palette with AI-inspired accents",
+        "Animations applied to transitions and interactive elements",
+        "Layout responsive across desktop, tablet, and mobile viewports"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/layout/Navigation.tsx",
+          "operation": "create",
+          "description": "Create Navigation component with responsive navbar containing links to all pages: Home (/), Predict (/predict), Results (/results), Model Insights (/model-insights), Admin Dashboard (/admin), and About Project (/about). Implement active route highlighting, mobile hamburger menu with smooth animations, and health-tech themed styling using Tailwind CSS with teal and green accents."
+        },
+        {
+          "path": "frontend/src/components/layout/Layout.tsx",
+          "operation": "create",
+          "description": "Create Layout component wrapping Navigation and children with consistent header and footer. Include AdAware branding in header and footer with copyright notice. Apply global health-focused color scheme and ensure responsive behavior across all viewports."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Update global styles to include health + AI aesthetic theme with custom CSS variables for primary colors (teal, green), secondary colors, and smooth transition animations. Define custom Tailwind utilities for concern badges, card shadows, and animation keyframes for loading states."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind configuration with custom health-tech color palette (teal, green, soft gray), custom spacing for dashboard cards, custom animation utilities for smooth transitions, and responsive breakpoints optimized for the application layout."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wrap application with Layout component and configure React Router with routes: / (Home), /predict (Predict), /results (Results), /model-insights (ModelInsights), /admin (AdminDashboard), /about (AboutProject). Set Home as default route and add wildcard route redirecting to Home for 404 handling."
+        }
+      ]
+    },
+    {
+      "id": "REQ-11",
+      "summary": "Integrate Chart.js for all data visualizations with consistent styling",
+      "acceptanceCriteria": [
+        "All charts implemented using Chart.js library",
+        "Charts display interactive tooltips on hover",
+        "Color schemes consistent with overall theme",
+        "Charts are responsive and render properly on mobile",
+        "Data updates reflected in real-time chart rendering"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/utils/chartConfig.ts",
+          "operation": "create",
+          "description": "Create Chart.js configuration utility exporting default chart options including responsive: true, maintainAspectRatio: false, plugins configuration for tooltips with custom callbacks, legend positioning, and health-tech color palette constants (teal, green, yellow, red gradients). Export helper functions for generating chart datasets with consistent styling."
+        }
+      ]
+    },
+    {
+      "id": "REQ-12",
+      "summary": "Implement PDF report generation from Results page",
+      "acceptanceCriteria": [
+        "Download button generates PDF on click without page reload",
+        "PDF contains all user input values",
+        "PDF displays prediction result prominently",
+        "PDF includes recommendation text",
+        "PDF shows generation timestamp",
+        "PDF formatted professionally with consistent branding"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/PredictionContext.tsx",
+          "operation": "create",
+          "description": "Create React Context provider for sharing prediction results and user inputs between Predict and Results pages. Export PredictionContext and usePredictionContext hook for accessing prediction data throughout the application."
+        }
+      ]
+    }
+  ]
+}

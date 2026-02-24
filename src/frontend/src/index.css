@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 0.5rem;
+        
+        /* Health-tech color palette with teal and green accents */
+        --background: 0.99 0.01 180;
+        --foreground: 0.15 0.02 180;
+        
+        --card: 1 0 0;
+        --card-foreground: 0.15 0.02 180;
+        
+        --popover: 1 0 0;
+        --popover-foreground: 0.15 0.02 180;
+        
+        /* Teal primary color */
+        --primary: 0.58 0.14 180;
+        --primary-foreground: 0.99 0.01 180;
+        
+        /* Green secondary color */
+        --secondary: 0.75 0.15 145;
+        --secondary-foreground: 0.15 0.02 145;
+        
+        --muted: 0.96 0.01 180;
+        --muted-foreground: 0.50 0.02 180;
+        
+        --accent: 0.94 0.02 180;
+        --accent-foreground: 0.15 0.02 180;
+        
+        --destructive: 0.58 0.22 25;
+        --destructive-foreground: 0.99 0.01 25;
+        
+        --border: 0.90 0.01 180;
+        --input: 0.90 0.01 180;
+        --ring: 0.58 0.14 180;
+        
+        /* Chart colors - health-focused palette */
+        --chart-1: 0.58 0.14 180;  /* Teal */
+        --chart-2: 0.75 0.15 145;  /* Green */
+        --chart-3: 0.65 0.18 250;  /* Blue */
+        --chart-4: 0.70 0.20 300;  /* Purple */
+        --chart-5: 0.75 0.18 60;   /* Yellow */
+    }
+
+    .dark {
+        --background: 0.15 0.02 180;
+        --foreground: 0.95 0.01 180;
+        
+        --card: 0.20 0.02 180;
+        --card-foreground: 0.95 0.01 180;
+        
+        --popover: 0.18 0.02 180;
+        --popover-foreground: 0.95 0.01 180;
+        
+        --primary: 0.65 0.16 180;
+        --primary-foreground: 0.15 0.02 180;
+        
+        --secondary: 0.70 0.14 145;
+        --secondary-foreground: 0.95 0.01 145;
+        
+        --muted: 0.25 0.02 180;
+        --muted-foreground: 0.65 0.02 180;
+        
+        --accent: 0.30 0.03 180;
+        --accent-foreground: 0.95 0.01 180;
+        
+        --destructive: 0.55 0.24 25;
+        --destructive-foreground: 0.95 0.01 25;
+        
+        --border: 0.30 0.02 180;
+        --input: 0.30 0.02 180;
+        --ring: 0.65 0.16 180;
+        
+        --chart-1: 0.65 0.16 180;
+        --chart-2: 0.70 0.14 145;
+        --chart-3: 0.60 0.16 250;
+        --chart-4: 0.65 0.18 300;
+        --chart-5: 0.70 0.16 60;
+    }
+
+    * {
+        @apply border-border;
+    }
+    
+    body {
+        @apply bg-background text-foreground;
+        font-feature-settings: "rlig" 1, "calt" 1;
+    }
+}
+
+@layer utilities {
+    /* Smooth transitions for interactive elements */
+    .transition-smooth {
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    /* Loading animation */
+    @keyframes pulse-slow {
+        0%, 100% {
+            opacity: 1;
+        }
+        50% {
+            opacity: 0.5;
+        }
+    }
+    
+    .animate-pulse-slow {
+        animation: pulse-slow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    
+    /* Concern badge styles */
+    .concern-badge-low {
+        @apply bg-green-600 text-white;
+    }
+    
+    .concern-badge-medium {
+        @apply bg-yellow-600 text-white;
+    }
+    
+    .concern-badge-high {
+        @apply bg-red-600 text-white;
+    }
+}

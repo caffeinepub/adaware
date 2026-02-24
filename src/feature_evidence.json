@@ -1,0 +1,163 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-home-page-with-project-overview-section-explaining-adaware-as-an-explainable-ai-decision-support-system-for-predicting-adolescent-concern-over-unhealthy-food-advertisements-hero-section-with-call-to-action-button-linking-to-prediction-form-and-overview-of-key-features-ml-prediction-shap-explainability-health-recommendations",
+      "featureTitle": "Create Home page with project overview section explaining AdAware as an Explainable AI decision-support system for predicting adolescent concern over unhealthy food advertisements, hero section with call-to-action button linking to prediction form, and overview of key features (ML prediction, SHAP explainability, health recommendations)",
+      "files": [
+        "frontend/src/pages/Home.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-predict-page-with-input-form-containing-all-7-fields-age-group-dropdown-with-13-15-16-18-19-gender-radio-buttons-male-female-daily-screen-time-dropdown-2hrs-2-5hrs-5hrs-primary-platform-dropdown-youtube-instagram-tv-multiple-ad-frequency-dropdown-rare-sometimes-often-ad-type-dropdown-fast-food-sugary-drinks-snacks-ad-persuasiveness-dropdown-low-medium-high-submit-button-and-loading-animation-during-prediction",
+      "featureTitle": "Build Predict page with input form containing all 7 fields (Age Group dropdown with 13-15/16-18/19+, Gender radio buttons Male/Female, Daily Screen Time dropdown <2hrs/2-5hrs/>5hrs, Primary Platform dropdown YouTube/Instagram/TV/Multiple, Ad Frequency dropdown Rare/Sometimes/Often, Ad Type dropdown Fast Food/Sugary Drinks/Snacks, Ad Persuasiveness dropdown Low/Medium/High), submit button, and loading animation during prediction",
+      "files": [
+        "frontend/src/hooks/usePrediction.ts",
+        "frontend/src/pages/Predict.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-results-page-displaying-predicted-concern-level-as-prominent-badge-low-medium-high-with-distinct-colors-personalized-health-recommendation-text-based-on-user-inputs-and-prediction-placeholder-section-for-shap-explanation-visualization-and-download-pdf-button-for-generating-report",
+      "featureTitle": "Create Results page displaying predicted concern level as prominent badge (Low/Medium/High with distinct colors), personalized health recommendation text based on user inputs and prediction, placeholder section for SHAP explanation visualization, and download PDF button for generating report",
+      "files": [
+        "frontend/src/components/DownloadPDFButton.tsx",
+        "frontend/src/pages/Results.tsx",
+        "frontend/src/utils/pdfGenerator.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-model-insights-page-showing-mock-ml-performance-metrics-accuracy-precision-recall-f1-scores-for-random-forest-confusion-matrix-visualization-as-heatmap-chart-feature-importance-bar-chart-ranking-all-7-input-features-and-model-comparison-chart-comparing-random-forest-vs-logistic-regression-performance",
+      "featureTitle": "Implement Model Insights page showing mock ML performance metrics (Accuracy, Precision, Recall, F1 scores for Random Forest), confusion matrix visualization as heatmap chart, feature importance bar chart ranking all 7 input features, and model comparison chart comparing Random Forest vs Logistic Regression performance",
+      "files": [
+        "frontend/src/components/charts/ConfusionMatrix.tsx",
+        "frontend/src/components/charts/FeatureImportance.tsx",
+        "frontend/src/components/charts/ModelComparison.tsx",
+        "frontend/src/pages/ModelInsights.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-admin-dashboard-page-showing-total-predictions-counter-fetched-from-backend-concern-distribution-pie-chart-with-low-medium-high-percentages-age-group-analysis-chart-showing-prediction-patterns-across-13-15-16-18-19-groups-and-gender-bias-visualization-comparing-male-vs-female-prediction-distributions",
+      "featureTitle": "Build Admin Dashboard page showing total predictions counter fetched from backend, concern distribution pie chart with Low/Medium/High percentages, age group analysis chart showing prediction patterns across 13-15/16-18/19+ groups, and gender bias visualization comparing Male vs Female prediction distributions",
+      "files": [
+        "frontend/src/components/charts/AgeGroupAnalysis.tsx",
+        "frontend/src/components/charts/ConcernDistributionPie.tsx",
+        "frontend/src/components/charts/GenderBiasChart.tsx",
+        "frontend/src/hooks/useAdminAnalytics.ts",
+        "frontend/src/pages/AdminDashboard.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-about-project-page-with-comprehensive-sections-project-objective-explaining-the-academic-purpose-ml-pipeline-overview-describing-random-forest-and-data-flow-explainable-ai-explanation-detailing-shap-methodology-and-importance-ethical-ai-considerations-discussing-bias-analysis-and-transparency-future-scope-listing-potential-enhancements-and-justification-for-random-forest-selection",
+      "featureTitle": "Create About Project page with comprehensive sections: project objective explaining the academic purpose, ML pipeline overview describing Random Forest and data flow, Explainable AI explanation detailing SHAP methodology and importance, ethical AI considerations discussing bias analysis and transparency, future scope listing potential enhancements, and justification for Random Forest selection",
+      "files": [
+        "frontend/src/pages/AboutProject.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-responsive-navigation-bar-with-links-to-all-pages-home-predict-results-model-insights-admin-dashboard-about-project-and-ensure-consistent-layout-across-all-pages-using-tailwind-css-with-health-ai-aesthetic-theme-featuring-clean-minimal-design-and-smooth-animations",
+      "featureTitle": "Implement responsive navigation bar with links to all pages (Home, Predict, Results, Model Insights, Admin Dashboard, About Project) and ensure consistent layout across all pages using Tailwind CSS with health + AI aesthetic theme featuring clean, minimal design and smooth animations",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/layout/Layout.tsx",
+        "frontend/src/components/layout/Navigation.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-10"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-pdf-report-generation-functionality-triggered-from-results-page-that-creates-downloadable-pdf-including-user-inputs-predicted-concern-level-shap-explanation-summary-placeholder-text-personalized-recommendation-timestamp-and-adaware-branding-header",
+      "featureTitle": "Implement PDF report generation functionality triggered from Results page that creates downloadable PDF including user inputs, predicted concern level, SHAP explanation summary (placeholder text), personalized recommendation, timestamp, and AdAware branding header",
+      "files": [
+        "frontend/src/components/PredictionContext.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-12"
+      ],
+      "confidence": "high"
+    }
+  ]
+}
